@@ -1,5 +1,6 @@
 
 //Thread Explaining Synchronized block and taking lock over a dummy object
+//Synchronize methos directly take ock over the entire object thus synchronized block is better
 
 import java.util.*;
 
