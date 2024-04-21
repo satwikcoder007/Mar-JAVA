@@ -11,7 +11,7 @@ class MyThread extends Thread{
                 while(count%2==0){
                     try {
                         System.out.println("odd thread blocked");
-                        ob.wait(); // if the number id even then we put the thread in wait that is it release its hold
+                        ob.wait(); // if the number is even then we put the thread in wait that is it release its hold
                                     //and wait here
                     } catch (Exception e) {}
                 }
@@ -32,15 +32,15 @@ class MyThread extends Thread{
                     try {
                         System.out.println("even thread blocked");
                         ob.wait();
-                       //if even thread get blocked it will release the lock on ob and wait here in hope someone will notify him to teck lock
-                       //once he get nptified it will agin regain the lock and continue to run
+                       //if even thread get blocked it will release the lock on ob and wait here in hope someone will notify him to take lock
+                       //once he get notified it will agin regain the lock and continue to run
                     } catch (Exception e) {};
                 }
                 System.out.println(count+"printed from even thread");
                 count++;
                 ob.notify();
                 //notifying the odd thread to continue once this thread release the lock
-                //once notify the odd thread does not imideatly take lock on ob but becme elligible to take lock and wait unitl even get to wait state
+                //once notify, the odd thread does not imideatly take lock on ob but became elligible to take lock and wait until even thread get to wait state
             }
         }
     }
